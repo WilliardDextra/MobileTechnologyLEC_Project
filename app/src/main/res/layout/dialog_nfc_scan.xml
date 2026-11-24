@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:layout_margin="24dp"
+    android:background="@drawable/bg_tactical_card"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:padding="24dp">
+
+    <ImageView
+        android:layout_width="64dp"
+        android:layout_height="64dp"
+        android:background="@drawable/bg_tactical_card_elevated"
+        android:padding="16dp"
+        android:src="@drawable/ic_nfc"
+        app:tint="@color/accent_amber" />
+
+    <TextView
+        style="@style/TacticalHeadline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="MEMINDAI KARTU NFC"
+        android:textSize="18sp" />
+
+    <TextView
+        style="@style/TacticalBody"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:gravity="center"
+        android:text="Tempelkan Smart Badge Ranger ke area sensor NFC perangkat."
+        android:textSize="13sp" />
+
+    <TextView
+        style="@style/TacticalTelemetryAmber"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/bg_pill_badge_amber"
+        android:text="NFC // ISO-14443A AIR-GAP SENSOR ACTIVE"
+        android:textSize="9sp" />
+
+</LinearLayout>

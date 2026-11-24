@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Theme.OffRoute" parent="Theme.Material3.Dark.NoActionBar">
+        <item name="colorPrimary">@color/accent_green</item>
+        <item name="colorPrimaryContainer">@color/accent_green_dark</item>
+        <item name="colorOnPrimary">@color/bg_obsidian</item>
+        <item name="android:colorBackground">@color/bg_obsidian</item>
+        <item name="colorSurface">@color/surface_card</item>
+        <item name="android:statusBarColor">@color/bg_obsidian</item>
+        <item name="android:navigationBarColor">@color/surface_nav</item>
+        <item name="android:windowLightStatusBar">false</item>
+        <item name="android:windowLightNavigationBar">false</item>
+    </style>
+
+    <style name="Theme.MyApplication" parent="Theme.OffRoute" />
+</resources>

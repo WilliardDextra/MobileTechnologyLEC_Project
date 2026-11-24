@@ -1,0 +1,368 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_obsidian">
+
+    <!-- Fullscreen OSMdroid MapView -->
+    <org.osmdroid.views.MapView
+        android:id="@+id/mapView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <!-- Top Container: Main Map Search vs Active Nav Turn-by-Turn Banner -->
+    <LinearLayout
+        android:id="@+id/layoutTopHeader"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <!-- Main State Top Search Bar -->
+        <LinearLayout
+            android:id="@+id/layoutMainHeader"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:visibility="visible">
+
+            <TextView
+                style="@style/TacticalTelemetryGreen"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_pill_badge_green"
+                android:text="• Offline Mode - v1.4 LOCAL"
+                android:textSize="10sp" />
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_marginTop="8dp"
+                app:cardBackgroundColor="@color/surface_card"
+                app:cardCornerRadius="10dp"
+                app:cardElevation="4dp"
+                app:strokeColor="@color/border_subtle"
+                app:strokeWidth="1dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingHorizontal="14dp">
+
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:src="@drawable/ic_map"
+                        app:tint="@color/text_secondary" />
+
+                    <EditText
+                        android:id="@+id/etSearchShelter"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginStart="10dp"
+                        android:layout_weight="1"
+                        android:background="@null"
+                        android:fontFamily="sans-serif"
+                        android:hint="Cari Titik Aman, Shelter..."
+                        android:textColor="@color/text_primary"
+                        android:textColorHint="@color/text_muted"
+                        android:textSize="13sp" />
+
+                    <ImageView
+                        android:id="@+id/btnQuickFilter"
+                        android:layout_width="22dp"
+                        android:layout_height="22dp"
+                        android:src="@drawable/ic_radar"
+                        app:tint="@color/accent_green" />
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+        </LinearLayout>
+
+        <!-- Active Navigation Banner: NEXT TURN -->
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cardActiveTurnBanner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            app:cardBackgroundColor="@color/accent_green"
+            app:cardCornerRadius="12dp"
+            app:cardElevation="6dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:padding="14dp">
+
+                <ImageView
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:background="@drawable/bg_radar_center"
+                    android:backgroundTint="@color/accent_green_dark"
+                    android:padding="6dp"
+                    android:src="@drawable/ic_arrow_forward"
+                    app:tint="@color/accent_green" />
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="sans-serif-black"
+                        android:letterSpacing="0.05"
+                        android:text="BELOK KANAN (200M)"
+                        android:textColor="@color/bg_obsidian"
+                        android:textSize="15sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="monospace"
+                        android:text="Jl. Charing Cross • Rute Bebas Bahaya"
+                        android:textColor="@color/bg_obsidian"
+                        android:textSize="11sp" />
+                </LinearLayout>
+
+                <TextView
+                    style="@style/TacticalTelemetry"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/bg_pill_badge_green"
+                    android:text="NAV ON"
+                    android:textColor="@color/accent_green_dark"
+                    android:textSize="9sp" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+    </LinearLayout>
+
+    <!-- Floating Right Action Buttons -->
+    <LinearLayout
+        android:id="@+id/layoutMapActionButtons"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toTopOf="@id/layoutBottomCards"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/layoutTopHeader">
+
+        <!-- Red Report Hazard Floating Button -->
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fabReportHazard"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="12dp"
+            android:contentDescription="Lapor Bahaya"
+            app:backgroundTint="@color/accent_red"
+            app:fabSize="normal"
+            app:srcCompat="@drawable/ic_report"
+            app:tint="@color/text_primary" />
+
+        <!-- Recenter GPS Button -->
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fabRecenterGps"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="12dp"
+            android:contentDescription="Recenter GPS"
+            app:backgroundTint="@color/surface_elevated"
+            app:fabSize="mini"
+            app:srcCompat="@drawable/ic_gps"
+            app:tint="@color/accent_blue" />
+
+        <!-- Map Layers Toggle Button -->
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fabMapLayers"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="Toggle Layers"
+            app:backgroundTint="@color/surface_elevated"
+            app:fabSize="mini"
+            app:srcCompat="@drawable/ic_radar"
+            app:tint="@color/accent_green" />
+    </LinearLayout>
+
+    <!-- Bottom Container: Main Shelter Card vs Active Navigation Controls Card -->
+    <FrameLayout
+        android:id="@+id/layoutBottomCards"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <!-- 1. Main State Shelter Card -->
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cardMainShelter"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="visible"
+            app:cardBackgroundColor="@color/surface_card"
+            app:cardCornerRadius="14dp"
+            app:cardElevation="6dp"
+            app:strokeColor="@color/border_subtle"
+            app:strokeWidth="1dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        style="@style/TacticalTelemetryGreen"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="SHELTER TERDEKAT" />
+
+                    <TextView
+                        style="@style/TacticalTelemetryAmber"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/bg_pill_badge_amber"
+                        android:text="1.2 KM (ETA. 14 MIN)"
+                        android:textSize="10sp" />
+                </LinearLayout>
+
+                <TextView
+                    style="@style/TacticalHeadline"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:text="Grand Ave Station"
+                    android:textSize="18sp" />
+
+                <TextView
+                    style="@style/TacticalTelemetry"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:text="Posko Evakuasi Induk • Kapasitas 450/800 Jiwa" />
+
+                <!-- CTA: Find Evacuation Route -->
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btnFindEvacRoute"
+                    style="@style/TacticalPrimaryButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:layout_marginTop="14dp"
+                    android:text="CARI RUTE EVAKUASI AMAN -&gt;" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- 2. Active Navigation Controls Card -->
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cardActiveNavControls"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            app:cardBackgroundColor="@color/surface_card"
+            app:cardCornerRadius="14dp"
+            app:cardElevation="6dp"
+            app:strokeColor="@color/border_subtle"
+            app:strokeWidth="1dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        style="@style/TacticalTelemetryGreen"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="NAVIGASI EVAKUASI AKTIF" />
+
+                    <TextView
+                        style="@style/TacticalTelemetryGreen"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/bg_pill_badge_green"
+                        android:text="950 M • ETA. 12 MIN"
+                        android:textSize="10sp" />
+                </LinearLayout>
+
+                <TextView
+                    style="@style/TacticalHeadline"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:text="Tujuan: Grand Ave Station"
+                    android:textSize="18sp" />
+
+                <TextView
+                    style="@style/TacticalTelemetry"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:text="Algoritma DTBS: Menghindari titik api &amp; banjir"
+                    android:textColor="@color/accent_blue" />
+
+                <!-- 2 Action Buttons -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:layout_marginTop="14dp"
+                    android:orientation="horizontal">
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/btnNavReportHazard"
+                        style="@style/TacticalSecondaryButton"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginEnd="6dp"
+                        android:layout_weight="1"
+                        android:drawableStart="@drawable/ic_report"
+                        android:drawableTint="@color/accent_red"
+                        android:paddingHorizontal="10dp"
+                        android:text="LAPOR BAHAYA"
+                        android:textColor="@color/accent_red"
+                        android:textSize="12sp" />
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/btnEndNavigation"
+                        style="@style/TacticalPrimaryButton"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginStart="6dp"
+                        android:layout_weight="1"
+                        android:text="AKHIRI RUTE"
+                        android:textSize="12sp" />
+                </LinearLayout>
+
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+    </FrameLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

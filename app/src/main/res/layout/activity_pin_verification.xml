@@ -1,0 +1,405 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_obsidian"
+    android:fillViewport="true">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="20dp">
+
+        <!-- Top Header Navigation -->
+        <LinearLayout
+            android:id="@+id/layoutHeaderPin"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingTop="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/btnBackPin"
+                android:layout_width="28dp"
+                android:layout_height="28dp"
+                android:background="?selectableItemBackgroundBorderless"
+                android:clickable="true"
+                android:focusable="true"
+                android:padding="2dp"
+                android:src="@drawable/ic_arrow_back"
+                app:tint="@color/text_primary" />
+
+            <TextView
+                style="@style/TacticalTelemetry"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:layout_weight="1"
+                android:text="OFFROUTE // TERMINAL CLEARANCE"
+                android:textColor="@color/text_secondary"
+                android:textSize="11sp" />
+
+            <TextView
+                android:id="@+id/pillTimer"
+                style="@style/TacticalTelemetryAmber"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_pill_badge_amber"
+                android:text="• Berlaku 02:45"
+                android:textSize="10sp" />
+        </LinearLayout>
+
+        <!-- Center Shield & Protocol Header -->
+        <ImageView
+            android:id="@+id/ivShieldHeader"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/bg_tactical_card_elevated"
+            android:padding="10dp"
+            android:src="@drawable/ic_shield"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/layoutHeaderPin"
+            app:tint="@color/accent_green" />
+
+        <TextView
+            android:id="@+id/tvPinProtocol"
+            style="@style/TacticalTelemetryGreen"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="PROTOKOL OTORISASI // LEVEL 3"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/ivShieldHeader" />
+
+        <TextView
+            android:id="@+id/tvPinTitle"
+            style="@style/TacticalHeadline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:text="Verifikasi Kunci PIN"
+            android:textSize="22sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvPinProtocol" />
+
+        <TextView
+            android:id="@+id/tvPinDesc"
+            style="@style/TacticalTelemetry"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:text="MASUKKAN 6-DIGIT KODE OTORISASI MISI"
+            android:textSize="10sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvPinTitle" />
+
+        <!-- 6 PIN Indicator Boxes -->
+        <LinearLayout
+            android:id="@+id/layoutPinBoxes"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="22dp"
+            android:gravity="center"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvPinDesc">
+
+            <!-- Box 1 -->
+            <TextView
+                android:id="@+id/pinBox1"
+                style="@style/TacticalHeadline"
+                android:layout_width="44dp"
+                android:layout_height="52dp"
+                android:layout_marginHorizontal="4dp"
+                android:background="@drawable/bg_pin_box_empty"
+                android:gravity="center"
+                android:text="—"
+                android:textColor="@color/text_muted"
+                android:textSize="18sp" />
+
+            <!-- Box 2 -->
+            <TextView
+                android:id="@+id/pinBox2"
+                style="@style/TacticalHeadline"
+                android:layout_width="44dp"
+                android:layout_height="52dp"
+                android:layout_marginHorizontal="4dp"
+                android:background="@drawable/bg_pin_box_empty"
+                android:gravity="center"
+                android:text="—"
+                android:textColor="@color/text_muted"
+                android:textSize="18sp" />
+
+            <!-- Box 3 -->
+            <TextView
+                android:id="@+id/pinBox3"
+                style="@style/TacticalHeadline"
+                android:layout_width="44dp"
+                android:layout_height="52dp"
+                android:layout_marginHorizontal="4dp"
+                android:background="@drawable/bg_pin_box_empty"
+                android:gravity="center"
+                android:text="—"
+                android:textColor="@color/text_muted"
+                android:textSize="18sp" />
+
+            <!-- Box 4 -->
+            <TextView
+                android:id="@+id/pinBox4"
+                style="@style/TacticalHeadline"
+                android:layout_width="44dp"
+                android:layout_height="52dp"
+                android:layout_marginHorizontal="4dp"
+                android:background="@drawable/bg_pin_box_empty"
+                android:gravity="center"
+                android:text="—"
+                android:textColor="@color/text_muted"
+                android:textSize="18sp" />
+
+            <!-- Box 5 -->
+            <TextView
+                android:id="@+id/pinBox5"
+                style="@style/TacticalHeadline"
+                android:layout_width="44dp"
+                android:layout_height="52dp"
+                android:layout_marginHorizontal="4dp"
+                android:background="@drawable/bg_pin_box_empty"
+                android:gravity="center"
+                android:text="—"
+                android:textColor="@color/text_muted"
+                android:textSize="18sp" />
+
+            <!-- Box 6 -->
+            <TextView
+                android:id="@+id/pinBox6"
+                style="@style/TacticalHeadline"
+                android:layout_width="44dp"
+                android:layout_height="52dp"
+                android:layout_marginHorizontal="4dp"
+                android:background="@drawable/bg_pin_box_empty"
+                android:gravity="center"
+                android:text="—"
+                android:textColor="@color/text_muted"
+                android:textSize="18sp" />
+        </LinearLayout>
+
+        <!-- Status Verification Feedback -->
+        <TextView
+            android:id="@+id/tvPinFeedback"
+            style="@style/TacticalTelemetryGreen"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="MENUNGGU INPUT TAKTIS"
+            android:textSize="10sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/layoutPinBoxes" />
+
+        <!-- Custom Interactive Numeric Keypad -->
+        <GridLayout
+            android:id="@+id/gridKeypad"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginTop="16dp"
+            android:columnCount="3"
+            android:rowCount="4"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvPinFeedback">
+
+            <!-- 1 -->
+            <Button
+                android:id="@+id/key1"
+                style="@style/TacticalHeadline"
+                android:layout_width="0dp"
+                android:layout_height="56dp"
+                android:layout_columnWeight="1"
+                android:layout_margin="4dp"
+                android:background="@drawable/bg_keypad_button"
+                android:text="1"
+                android:textSize="20sp" />
+
+            <!-- 2 -->
+            <Button
+                android:id="@+id/key2"
+                style="@style/TacticalHeadline"
+                android:layout_width="0dp"
+                android:layout_height="56dp"
+                android:layout_columnWeight="1"
+                android:layout_margin="4dp"
+                android:background="@drawable/bg_keypad_button"
+                android:text="2"
+                android:textSize="20sp" />
+
+            <!-- 3 -->
+            <Button
+                android:id="@+id/key3"
+                style="@style/TacticalHeadline"
+                android:layout_width="0dp"
+                android:layout_height="56dp"
+                android:layout_columnWeight="1"
+                android:layout_margin="4dp"
+                android:background="@drawable/bg_keypad_button"
+                android:text="3"
+                android:textSize="20sp" />
+
+            <!-- 4 -->
+            <Button
+                android:id="@+id/key4"
+                style="@style/TacticalHeadline"
+                android:layout_width="0dp"
+                android:layout_height="56dp"
+                android:layout_columnWeight="1"
+                android:layout_margin="4dp"
+                android:background="@drawable/bg_keypad_button"
+                android:text="4"
+                android:textSize="20sp" />
+
+            <!-- 5 -->
+            <Button
+                android:id="@+id/key5"
+                style="@style/TacticalHeadline"
+                android:layout_width="0dp"
+                android:layout_height="56dp"
+                android:layout_columnWeight="1"
+                android:layout_margin="4dp"
+                android:background="@drawable/bg_keypad_button"
+                android:text="5"
+                android:textSize="20sp" />
+
+            <!-- 6 -->
+            <Button
+                android:id="@+id/key6"
+                style="@style/TacticalHeadline"
+                android:layout_width="0dp"
+                android:layout_height="56dp"
+                android:layout_columnWeight="1"
+                android:layout_margin="4dp"
+                android:background="@drawable/bg_keypad_button"
+                android:text="6"
+                android:textSize="20sp" />
+
+            <!-- 7 -->
+            <Button
+                android:id="@+id/key7"
+                style="@style/TacticalHeadline"
+                android:layout_width="0dp"
+                android:layout_height="56dp"
+                android:layout_columnWeight="1"
+                android:layout_margin="4dp"
+                android:background="@drawable/bg_keypad_button"
+                android:text="7"
+                android:textSize="20sp" />
+
+            <!-- 8 -->
+            <Button
+                android:id="@+id/key8"
+                style="@style/TacticalHeadline"
+                android:layout_width="0dp"
+                android:layout_height="56dp"
+                android:layout_columnWeight="1"
+                android:layout_margin="4dp"
+                android:background="@drawable/bg_keypad_button"
+                android:text="8"
+                android:textSize="20sp" />
+
+            <!-- 9 -->
+            <Button
+                android:id="@+id/key9"
+                style="@style/TacticalHeadline"
+                android:layout_width="0dp"
+                android:layout_height="56dp"
+                android:layout_columnWeight="1"
+                android:layout_margin="4dp"
+                android:background="@drawable/bg_keypad_button"
+                android:text="9"
+                android:textSize="20sp" />
+
+            <!-- Mesh / Clear -->
+            <ImageButton
+                android:id="@+id/keyMeshClear"
+                android:layout_width="0dp"
+                android:layout_height="56dp"
+                android:layout_columnWeight="1"
+                android:layout_margin="4dp"
+                android:background="@drawable/bg_keypad_button"
+                android:contentDescription="Mesh Quick Clear"
+                android:src="@drawable/ic_mesh"
+                app:tint="@color/accent_green" />
+
+            <!-- 0 -->
+            <Button
+                android:id="@+id/key0"
+                style="@style/TacticalHeadline"
+                android:layout_width="0dp"
+                android:layout_height="56dp"
+                android:layout_columnWeight="1"
+                android:layout_margin="4dp"
+                android:background="@drawable/bg_keypad_button"
+                android:text="0"
+                android:textSize="20sp" />
+
+            <!-- Backspace -->
+            <ImageButton
+                android:id="@+id/keyBackspace"
+                android:layout_width="0dp"
+                android:layout_height="56dp"
+                android:layout_columnWeight="1"
+                android:layout_margin="4dp"
+                android:background="@drawable/bg_keypad_button"
+                android:contentDescription="Backspace"
+                android:src="@drawable/ic_backspace"
+                app:tint="@color/accent_red" />
+        </GridLayout>
+
+        <!-- Footer Actions -->
+        <TextView
+            android:id="@+id/btnResendCode"
+            style="@style/TacticalTelemetry"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:background="?selectableItemBackground"
+            android:clickable="true"
+            android:focusable="true"
+            android:padding="6dp"
+            android:text="KIRIM ULANG KODE OTORISASI"
+            android:textColor="@color/accent_green"
+            android:textSize="11sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/gridKeypad" />
+
+        <TextView
+            android:id="@+id/btnMeshBypass"
+            style="@style/TacticalTelemetryAmber"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="16dp"
+            android:background="?selectableItemBackground"
+            android:clickable="true"
+            android:focusable="true"
+            android:padding="8dp"
+            android:text="OPSI LAIN: VERIFIKASI VIA MESH P2P -&gt;"
+            android:textSize="10sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/btnResendCode" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Tactical Dark-Grid UI Palette -->
+    <color name="bg_obsidian">#0D0E12</color>
+    <color name="surface_card">#16181F</color>
+    <color name="surface_elevated">#1E212B</color>
+    <color name="surface_nav">#12141A</color>
+    <color name="border_subtle">#262A36</color>
+    <color name="border_active">#4ADE80</color>
+
+    <!-- Tactical Accents -->
+    <color name="accent_green">#4ADE80</color>
+    <color name="accent_green_dark">#143322</color>
+    <color name="accent_green_translucent">#264ADE80</color>
+
+    <color name="accent_red">#FF1E42</color>
+    <color name="accent_red_surface">#2A1219</color>
+    <color name="accent_red_translucent">#33FF1E42</color>
+
+    <color name="accent_amber">#FBBF24</color>
+    <color name="accent_amber_dark">#2E2410</color>
+    <color name="accent_amber_translucent">#26FBBF24</color>
+
+    <color name="accent_blue">#3B82F6</color>
+    <color name="accent_blue_dark">#102240</color>
+    <color name="accent_blue_translucent">#333B82F6</color>
+
+    <!-- Typography -->
+    <color name="text_primary">#F8FAFC</color>
+    <color name="text_secondary">#94A3B8</color>
+    <color name="text_muted">#64748B</color>
+
+    <!-- Utilities -->
+    <color name="white">#FFFFFF</color>
+    <color name="black">#000000</color>
+    <color name="transparent">#00000000</color>
+    <color name="ripple_light">#33FFFFFF</color>
+    <color name="ripple_green">#334ADE80</color>
+    <color name="ripple_red">#33FF1E42</color>
+</resources>

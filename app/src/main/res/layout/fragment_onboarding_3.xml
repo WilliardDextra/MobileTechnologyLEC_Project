@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="20dp">
+
+        <!-- Visual Pulsing Crimson Emergency Beacon Card -->
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cardVisualBeacon"
+            android:layout_width="0dp"
+            android:layout_height="180dp"
+            android:layout_marginTop="8dp"
+            app:cardBackgroundColor="@color/accent_red_surface"
+            app:cardCornerRadius="14dp"
+            app:cardElevation="0dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:strokeColor="@color/accent_red"
+            app:strokeWidth="1dp">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="16dp">
+
+                <TextView
+                    style="@style/TacticalTelemetryRed"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="EMERGENCY BEACON : TX ACTIVE"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <!-- Center Pulsing Emergency Beacon Graphic -->
+                <ImageView
+                    android:id="@+id/ivBeaconVisual"
+                    android:layout_width="72dp"
+                    android:layout_height="72dp"
+                    android:background="@drawable/bg_radar_center"
+                    android:padding="14dp"
+                    android:src="@drawable/ic_beacon"
+                    app:layout_constraintBottom_toTopOf="@id/tvTelemetryBeacon"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:tint="@color/accent_red" />
+
+                <TextView
+                    android:id="@+id/tvTelemetryBeacon"
+                    style="@style/TacticalTelemetry"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="LAT: -06.2088° // LON: +106.8456°"
+                    android:textColor="@color/accent_amber"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- Tag Badge -->
+        <TextView
+            android:id="@+id/badgeBeacon"
+            style="@style/TacticalTelemetryRed"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/bg_pill_badge_red"
+            android:text="• SIAGA LAPANGAN SYS.BEACON.V3"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/cardVisualBeacon" />
+
+        <!-- Title -->
+        <TextView
+            android:id="@+id/tvTitleBeacon"
+            style="@style/TacticalHeadline"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="Suar Darurat &amp; Respon Cepat"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/badgeBeacon" />
+
+        <TextView
+            android:id="@+id/tvDescriptionBeacon"
+            style="@style/TacticalBody"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:text="Aktifkan suar SOS Bluetooth Low Energy saat terdesak. Tim Ranger SAR dapat mendeteksi arah dan jarak korban seketika."
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvTitleBeacon" />
+
+        <!-- Status Row 1 -->
+        <LinearLayout
+            android:id="@+id/rowStatus1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/bg_tactical_card_elevated"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:padding="14dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvDescriptionBeacon">
+
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/ic_gps"
+                app:tint="@color/accent_green" />
+
+            <TextView
+                style="@style/TacticalSubhead"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:layout_weight="1"
+                android:text="Izin Lokasi &amp; BLE Siap"
+                android:textSize="13sp" />
+
+            <TextView
+                style="@style/TacticalTelemetryGreen"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_pill_badge_green"
+                android:text="[✓ SIAP]" />
+        </LinearLayout>
+
+        <!-- Status Row 2 -->
+        <LinearLayout
+            android:id="@+id/rowStatus2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/bg_tactical_card_elevated"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:padding="14dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/rowStatus1">
+
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/ic_battery"
+                app:tint="@color/accent_amber" />
+
+            <TextView
+                style="@style/TacticalSubhead"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:layout_weight="1"
+                android:text="Mode Siaga Baterai (1.2%/jam)"
+                android:textSize="13sp" />
+
+            <TextView
+                style="@style/TacticalTelemetryAmber"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_pill_badge_amber"
+                android:text="[• STANDBY]" />
+        </LinearLayout>
+
+        <!-- CTA Button -->
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnStartOperation"
+            style="@style/TacticalPrimaryButton"
+            android:layout_width="0dp"
+            android:layout_height="52dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginBottom="16dp"
+            android:text="MULAI OPERASI ->"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/rowStatus2" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

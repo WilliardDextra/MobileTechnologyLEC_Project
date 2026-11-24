@@ -1,0 +1,497 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_obsidian"
+    android:fillViewport="true">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="20dp">
+
+        <!-- Top Header Tag -->
+        <TextView
+            android:id="@+id/tvSettingsTag"
+            style="@style/TacticalTelemetryGreen"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_pill_badge_green"
+            android:text="• KONFIGURASI SISTEM // MODE WARGA"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tvSettingsTitle"
+            style="@style/TacticalHeadline"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="Pengaturan Perangkat"
+            android:textSize="24sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvSettingsTag" />
+
+        <!-- 1. Offline Maps Section -->
+        <TextView
+            android:id="@+id/lblOfflineMaps"
+            style="@style/TacticalTelemetry"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="PETA VEKTOR OFFLINE:"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvSettingsTitle" />
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cardOfflineMapStatus"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            app:cardBackgroundColor="@color/surface_card"
+            app:cardCornerRadius="12dp"
+            app:cardElevation="0dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/lblOfflineMaps"
+            app:strokeColor="@color/border_subtle"
+            app:strokeWidth="1dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:src="@drawable/ic_map"
+                        app:tint="@color/accent_green" />
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="12dp"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            style="@style/TacticalSubhead"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Indonesia, Jakarta"
+                            android:textSize="14sp" />
+
+                        <TextView
+                            style="@style/TacticalTelemetry"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="REGION ID: JKT-101 • 100% CACHE AIR-GAP"
+                            android:textSize="10sp" />
+                    </LinearLayout>
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/btnManageOfflineMap"
+                        style="@style/TacticalSecondaryButton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="36dp"
+                        android:paddingHorizontal="12dp"
+                        android:text="[ MANAGE ]"
+                        android:textSize="11sp" />
+                </LinearLayout>
+
+                <!-- Progress Bar -->
+                <ProgressBar
+                    android:id="@+id/pbOfflineMap"
+                    style="?android:attr/progressBarStyleHorizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="6dp"
+                    android:layout_marginTop="14dp"
+                    android:max="100"
+                    android:progress="85"
+                    android:progressBackgroundTint="@color/border_subtle"
+                    android:progressTint="@color/accent_green" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="6dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        style="@style/TacticalTelemetry"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="TERPAKAI: 2.4 GB / 10 GB"
+                        android:textSize="10sp" />
+
+                    <TextView
+                        style="@style/TacticalTelemetryGreen"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="85% SIAP"
+                        android:textSize="10sp" />
+                </LinearLayout>
+
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- 2. Mesh Network Section -->
+        <TextView
+            android:id="@+id/lblMeshNetwork"
+            style="@style/TacticalTelemetry"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="22dp"
+            android:text="JARINGAN MESH &amp; PROTOKOL RADIO:"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/cardOfflineMapStatus" />
+
+        <LinearLayout
+            android:id="@+id/layoutMeshSwitches"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:orientation="vertical"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/lblMeshNetwork">
+
+            <!-- Switch 1: Local UDP Sync -->
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardBackgroundColor="@color/surface_card"
+                app:cardCornerRadius="10dp"
+                app:cardElevation="0dp"
+                app:strokeColor="@color/border_subtle"
+                app:strokeWidth="1dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingHorizontal="14dp"
+                    android:paddingVertical="10dp">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            style="@style/TacticalSubhead"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Local UDP Sync"
+                            android:textSize="13sp" />
+
+                        <TextView
+                            style="@style/TacticalTelemetry"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Sinkronisasi peer-to-peer antar perangkat lokal"
+                            android:textSize="9sp" />
+                    </LinearLayout>
+
+                    <com.google.android.material.materialswitch.MaterialSwitch
+                        android:id="@+id/switchUdpSync"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:checked="true"
+                        app:thumbTint="@color/accent_green"
+                        app:trackDecorationTint="@color/accent_green"
+                        app:trackTint="@color/accent_green_dark" />
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Switch 2: Satelite Relay -->
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                app:cardBackgroundColor="@color/surface_card"
+                app:cardCornerRadius="10dp"
+                app:cardElevation="0dp"
+                app:strokeColor="@color/border_subtle"
+                app:strokeWidth="1dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingHorizontal="14dp"
+                    android:paddingVertical="10dp">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            style="@style/TacticalSubhead"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Satelite Relay"
+                            android:textSize="13sp" />
+
+                        <TextView
+                            style="@style/TacticalTelemetry"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Relay paket ke gateway satelit jika terdeteksi"
+                            android:textSize="9sp" />
+                    </LinearLayout>
+
+                    <com.google.android.material.materialswitch.MaterialSwitch
+                        android:id="@+id/switchSateliteRelay"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:checked="false"
+                        app:thumbTint="@color/accent_green"
+                        app:trackDecorationTint="@color/accent_green"
+                        app:trackTint="@color/accent_green_dark" />
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+        </LinearLayout>
+
+        <!-- 3. Power & Flare Section -->
+        <TextView
+            android:id="@+id/lblPowerFlare"
+            style="@style/TacticalTelemetry"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="22dp"
+            android:text="MANAJEMEN DAYA &amp; BEACON SOS:"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/layoutMeshSwitches" />
+
+        <LinearLayout
+            android:id="@+id/layoutPowerSwitches"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:orientation="vertical"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/lblPowerFlare">
+
+            <!-- Switch 1: Extreme Battery Saver -->
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardBackgroundColor="@color/surface_card"
+                app:cardCornerRadius="10dp"
+                app:cardElevation="0dp"
+                app:strokeColor="@color/border_subtle"
+                app:strokeWidth="1dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingHorizontal="14dp"
+                    android:paddingVertical="10dp">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            style="@style/TacticalSubhead"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Extreme Battery Saver"
+                            android:textSize="13sp" />
+
+                        <TextView
+                            android:id="@+id/tvBatteryEstimate"
+                            style="@style/TacticalTelemetryAmber"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Estimasi daya: 32 Jam operasional standar"
+                            android:textSize="9sp" />
+                    </LinearLayout>
+
+                    <com.google.android.material.materialswitch.MaterialSwitch
+                        android:id="@+id/switchBatterySaver"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:checked="false"
+                        app:thumbTint="@color/accent_amber"
+                        app:trackDecorationTint="@color/accent_amber"
+                        app:trackTint="@color/accent_amber_dark" />
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Switch 2: BLE Beacon Standby -->
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                app:cardBackgroundColor="@color/surface_card"
+                app:cardCornerRadius="10dp"
+                app:cardElevation="0dp"
+                app:strokeColor="@color/border_subtle"
+                app:strokeWidth="1dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingHorizontal="14dp"
+                    android:paddingVertical="10dp">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            style="@style/TacticalSubhead"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="BLE Beacon (SOS) Standby"
+                            android:textSize="13sp" />
+
+                        <TextView
+                            style="@style/TacticalTelemetry"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Siap memancarkan suar darurat kapan saja"
+                            android:textSize="9sp" />
+                    </LinearLayout>
+
+                    <com.google.android.material.materialswitch.MaterialSwitch
+                        android:id="@+id/switchBleBeacon"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:checked="true"
+                        app:thumbTint="@color/accent_green"
+                        app:trackDecorationTint="@color/accent_green"
+                        app:trackTint="@color/accent_green_dark" />
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+        </LinearLayout>
+
+        <!-- 4. Account & Security Section -->
+        <TextView
+            android:id="@+id/lblAccount"
+            style="@style/TacticalTelemetry"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="22dp"
+            android:text="PROFIL &amp; KUNCI ENKRIPSI:"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/layoutPowerSwitches" />
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cardAccountInfo"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            app:cardBackgroundColor="@color/surface_card"
+            app:cardCornerRadius="12dp"
+            app:cardElevation="0dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/lblAccount"
+            app:strokeColor="@color/border_subtle"
+            app:strokeWidth="1dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="32dp"
+                        android:layout_height="32dp"
+                        android:background="@drawable/bg_tactical_card_elevated"
+                        android:padding="6dp"
+                        android:src="@drawable/ic_person"
+                        app:tint="@color/accent_green" />
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="12dp"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            style="@style/TacticalSubhead"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Muh Daffa Dwi (Civil)"
+                            android:textSize="14sp" />
+
+                        <TextView
+                            style="@style/TacticalTelemetryGreen"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="ENKRIPSI: ED25519 VERIFIED"
+                            android:textSize="10sp" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginVertical="12dp"
+                    android:background="@color/border_subtle" />
+
+                <!-- Switch Role to Ranger CTA -->
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btnSwitchToRanger"
+                    style="@style/TacticalSecondaryButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="44dp"
+                    android:text="GANTI KE MODE OPERATOR RANGER -&gt;"
+                    android:textColor="@color/accent_green"
+                    android:textSize="12sp" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <TextView
+            style="@style/TacticalTelemetry"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="16dp"
+            android:text="OFFROUTE // AIR-GAP SECURE TERMINAL V1.4"
+            android:textSize="9sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/cardAccountInfo" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

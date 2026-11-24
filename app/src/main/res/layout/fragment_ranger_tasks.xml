@@ -1,0 +1,309 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_obsidian"
+    android:fillViewport="true">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="20dp">
+
+        <!-- Top Header Navigation -->
+        <LinearLayout
+            android:id="@+id/layoutTasksTop"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                style="@style/TacticalTelemetryGreen"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="• TUGAS TAKTIS (2 Misi Aktif)"
+                android:textSize="12sp" />
+
+            <FrameLayout
+                android:id="@+id/btnNotificationBell"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:background="@drawable/bg_tactical_card_elevated"
+                android:clickable="true"
+                android:focusable="true">
+
+                <ImageView
+                    android:layout_width="18dp"
+                    android:layout_height="18dp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/ic_bell"
+                    app:tint="@color/text_primary" />
+
+                <!-- Red alert badge -->
+                <View
+                    android:layout_width="8dp"
+                    android:layout_height="8dp"
+                    android:layout_gravity="top|end"
+                    android:layout_margin="5dp"
+                    android:background="@drawable/bg_btn_danger" />
+            </FrameLayout>
+        </LinearLayout>
+
+        <!-- Section 1: PRIORITAS UTAMA -->
+        <TextView
+            android:id="@+id/lblHeroPriority"
+            style="@style/TacticalTelemetryRed"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="PRIORITAS UTAMA // SIAGA REGENT 04"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/layoutTasksTop" />
+
+        <!-- Hero Mission Card -->
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cardHeroMission"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            app:cardBackgroundColor="@color/surface_card"
+            app:cardCornerRadius="14dp"
+            app:cardElevation="0dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/lblHeroPriority"
+            app:strokeColor="@color/accent_red"
+            app:strokeWidth="1.5dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <!-- Badges Header -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        style="@style/TacticalTelemetryRed"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/bg_pill_badge_red"
+                        android:text="[ • DARURAT ]"
+                        android:textSize="10sp" />
+
+                    <TextView
+                        style="@style/TacticalTelemetryAmber"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:background="@drawable/bg_pill_badge_amber"
+                        android:text="[ ETA &lt; 15m ]"
+                        android:textSize="10sp" />
+                </LinearLayout>
+
+                <!-- Mission Title -->
+                <TextView
+                    android:id="@+id/tvHeroTitle"
+                    style="@style/TacticalHeadline"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:text="MISI PRIORITAS 1: Evakuasi Korban Longsor"
+                    android:textSize="17sp" />
+
+                <!-- Location -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="6dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="16dp"
+                        android:layout_height="16dp"
+                        android:src="@drawable/ic_gps"
+                        app:tint="@color/accent_red" />
+
+                    <TextView
+                        style="@style/TacticalTelemetry"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="6dp"
+                        android:text="Lokasi: Lereng Cidadap (&lt; 15m dari Posko B)"
+                        android:textColor="@color/text_secondary"
+                        android:textSize="11sp" />
+                </LinearLayout>
+
+                <!-- Logistics Chips -->
+                <TextView
+                    style="@style/TacticalTelemetry"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:text="LOGISTIK &amp; PERLENGKAPAN:"
+                    android:textSize="9sp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="6dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        style="@style/TacticalTelemetryGreen"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="6dp"
+                        android:background="@drawable/bg_pill_badge_green"
+                        android:text="Tandu"
+                        android:textSize="10sp" />
+
+                    <TextView
+                        style="@style/TacticalTelemetryGreen"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="6dp"
+                        android:background="@drawable/bg_pill_badge_green"
+                        android:text="P3K Medis"
+                        android:textSize="10sp" />
+
+                    <TextView
+                        style="@style/TacticalTelemetryGreen"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/bg_pill_badge_green"
+                        android:text="Harnes Tali"
+                        android:textSize="10sp" />
+                </LinearLayout>
+
+                <!-- Accept Task CTA -->
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btnAcceptMission"
+                    style="@style/TacticalPrimaryButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:layout_marginTop="16dp"
+                    android:text="TERIMA TUGAS -&gt;"
+                    android:textSize="13sp" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- Section 2: STATUS LAPANGAN -->
+        <LinearLayout
+            android:id="@+id/layoutFieldStatusHeader"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/cardHeroMission">
+
+            <TextView
+                style="@style/TacticalTelemetry"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="STATUS LAPANGAN:" />
+
+            <TextView
+                style="@style/TacticalTelemetryAmber"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_pill_badge_amber"
+                android:text="UNIT AKTIF 1/3"
+                android:textSize="10sp" />
+        </LinearLayout>
+
+        <!-- Mission 2 Card: Tree Clearing -->
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cardSecondaryMission"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="16dp"
+            app:cardBackgroundColor="@color/surface_card"
+            app:cardCornerRadius="12dp"
+            app:cardElevation="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/layoutFieldStatusHeader"
+            app:strokeColor="@color/border_subtle"
+            app:strokeWidth="1dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        style="@style/TacticalTelemetryAmber"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/bg_pill_badge_amber"
+                        android:text="BERJALAN"
+                        android:textSize="10sp" />
+
+                    <TextView
+                        style="@style/TacticalTelemetry"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:layout_weight="1"
+                        android:text="Giat #402: Pembersihan Pohon"
+                        android:textColor="@color/text_primary" />
+
+                    <TextView
+                        android:id="@+id/tvProgressSecondary"
+                        style="@style/TacticalTelemetryAmber"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="65%"
+                        android:textSize="12sp" />
+                </LinearLayout>
+
+                <TextView
+                    style="@style/TacticalTelemetry"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="6dp"
+                    android:text="Jl. Ir. H. Djuanda • Unit Echo-01 Operasional"
+                    android:textSize="11sp" />
+
+                <!-- Progress Bar -->
+                <ProgressBar
+                    style="?android:attr/progressBarStyleHorizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="6dp"
+                    android:layout_marginTop="10dp"
+                    android:max="100"
+                    android:progress="65"
+                    android:progressBackgroundTint="@color/border_subtle"
+                    android:progressTint="@color/accent_amber" />
+
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

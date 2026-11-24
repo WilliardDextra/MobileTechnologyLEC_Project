@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bg_tactical_card"
+    android:orientation="vertical"
+    android:padding="20dp">
+
+    <!-- Handle drag indicator -->
+    <View
+        android:layout_width="40dp"
+        android:layout_height="4dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/bg_progress_bar_segment_inactive" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <TextView
+            style="@style/TacticalHeadline"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="REGU PENYELAMAT SEKITAR"
+            android:textSize="18sp" />
+
+        <TextView
+            style="@style/TacticalTelemetryGreen"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_pill_badge_green"
+            android:text="• 4 UNIT TERDETEKSI"
+            android:textSize="10sp" />
+    </LinearLayout>
+
+    <TextView
+        style="@style/TacticalTelemetry"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:text="TERHUBUNG MELALUI PROTOKOL BLE MESH DIRECT" />
+
+    <!-- Unit 1: Bravo-02 -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/bg_tactical_card_elevated"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:padding="12dp">
+
+        <ImageView
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:background="@drawable/bg_tactical_card"
+            android:padding="6dp"
+            android:src="@drawable/ic_shield"
+            app:tint="@color/accent_red" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                style="@style/TacticalSubhead"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="BRAVO-02 (SAR Lapangan)"
+                android:textSize="14sp" />
+
+            <TextView
+                style="@style/TacticalTelemetry"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Jarak: 340m Timur • Sinyal Kuat (-58dBm)" />
+        </LinearLayout>
+
+        <TextView
+            style="@style/TacticalTelemetryGreen"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_pill_badge_green"
+            android:text="SIAGA" />
+    </LinearLayout>
+
+    <!-- Unit 2: Echo-01 -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/bg_tactical_card_elevated"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:padding="12dp">
+
+        <ImageView
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:background="@drawable/bg_tactical_card"
+            android:padding="6dp"
+            android:src="@drawable/ic_person"
+            app:tint="@color/accent_green" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                style="@style/TacticalSubhead"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="ECHO-01 (Patroli Sektor)"
+                android:textSize="14sp" />
+
+            <TextView
+                style="@style/TacticalTelemetry"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Jarak: 850m Barat • Jalur Evakuasi Bersih" />
+        </LinearLayout>
+
+        <TextView
+            style="@style/TacticalTelemetryGreen"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_pill_badge_green"
+            android:text="PATROLI" />
+    </LinearLayout>
+
+    <!-- Unit 3: Med-Alpha -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/bg_tactical_card_elevated"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:padding="12dp">
+
+        <ImageView
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:background="@drawable/bg_tactical_card"
+            android:padding="6dp"
+            android:src="@drawable/ic_beacon"
+            app:tint="@color/accent_amber" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                style="@style/TacticalSubhead"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="MED-ALPHA (Ambulans Medis)"
+                android:textSize="14sp" />
+
+            <TextView
+                style="@style/TacticalTelemetry"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Jarak: 1.2 km Selatan • Menuju Posko" />
+        </LinearLayout>
+
+        <TextView
+            style="@style/TacticalTelemetryAmber"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_pill_badge_amber"
+            android:text="TRANSIT" />
+    </LinearLayout>
+
+    <!-- Dismiss Button -->
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnCloseResponders"
+        style="@style/TacticalSecondaryButton"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_marginTop="16dp"
+        android:text="TUTUP DAFTAR RESPONDER" />
+
+</LinearLayout>

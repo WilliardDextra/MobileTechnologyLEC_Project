@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="20dp">
+
+        <!-- Visual Tactical Radar Grid Graphic Card -->
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cardVisual"
+            android:layout_width="0dp"
+            android:layout_height="180dp"
+            android:layout_marginTop="8dp"
+            app:cardBackgroundColor="@color/surface_card"
+            app:cardCornerRadius="14dp"
+            app:cardElevation="0dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:strokeColor="@color/border_subtle"
+            app:strokeWidth="1dp">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="16dp">
+
+                <TextView
+                    style="@style/TacticalTelemetryGreen"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="GRID // 07°14'S 112°45'E"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    style="@style/TacticalTelemetry"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="• OFF-GRID SYS"
+                    android:textColor="@color/accent_amber"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <!-- Center Radar Emblem -->
+                <ImageView
+                    android:id="@+id/ivRadarVisual"
+                    android:layout_width="72dp"
+                    android:layout_height="72dp"
+                    android:background="@drawable/bg_radar_center"
+                    android:padding="14dp"
+                    android:src="@drawable/ic_radar"
+                    app:layout_constraintBottom_toTopOf="@id/tvTelemetrySig"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:tint="@color/accent_red" />
+
+                <TextView
+                    android:id="@+id/tvTelemetrySig"
+                    style="@style/TacticalTelemetry"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="SIG: 0.00dB [ZERO-NET DIRECT RF]"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- Tag Badge -->
+        <TextView
+            android:id="@+id/badgeReady"
+            style="@style/TacticalTelemetryGreen"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/bg_pill_badge_green"
+            android:text="• OFF-GRID READY"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/cardVisual" />
+
+        <!-- Title -->
+        <TextView
+            android:id="@+id/tvTitle"
+            style="@style/TacticalHeadline"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="NAVIGASI TANPA INTERNET"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/badgeReady" />
+
+        <TextView
+            android:id="@+id/tvDescription"
+            style="@style/TacticalBody"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:text="Peta taktis offline lengkap dengan algoritma penghindar rintangan otomatis tanpa memerlukan koneksi BTS atau seluler."
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvTitle" />
+
+        <!-- Feature Card 1 -->
+        <LinearLayout
+            android:id="@+id/cardFeature1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/bg_tactical_card_elevated"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:padding="14dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvDescription">
+
+            <ImageView
+                android:layout_width="28dp"
+                android:layout_height="28dp"
+                android:src="@drawable/ic_map"
+                app:tint="@color/accent_green" />
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    style="@style/TacticalSubhead"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Peta Vektor Mandiri"
+                    android:textSize="14sp" />
+
+                <TextView
+                    style="@style/TacticalTelemetry"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="100% Cache Lokal Tanpa Sinyal" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- Feature Card 2 -->
+        <LinearLayout
+            android:id="@+id/cardFeature2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/bg_tactical_card_elevated"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:padding="14dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/cardFeature1">
+
+            <ImageView
+                android:layout_width="28dp"
+                android:layout_height="28dp"
+                android:src="@drawable/ic_radar"
+                app:tint="@color/accent_red" />
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    style="@style/TacticalSubhead"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Auto Re-Route Taktis"
+                    android:textSize="14sp" />
+
+                <TextView
+                    style="@style/TacticalTelemetry"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Hindari Bahaya Banjir &amp; Longsor" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- CTA Buttons -->
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnNext1"
+            style="@style/TacticalPrimaryButton"
+            android:layout_width="0dp"
+            android:layout_height="52dp"
+            android:layout_marginTop="24dp"
+            android:text="LANJUT KE MESH ->"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/cardFeature2" />
+
+        <TextView
+            android:id="@+id/btnSkip1"
+            style="@style/TacticalTelemetry"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="14dp"
+            android:layout_marginBottom="16dp"
+            android:background="?selectableItemBackground"
+            android:clickable="true"
+            android:focusable="true"
+            android:padding="8dp"
+            android:text="LEWATI PENGENALAN"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/btnNext1" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

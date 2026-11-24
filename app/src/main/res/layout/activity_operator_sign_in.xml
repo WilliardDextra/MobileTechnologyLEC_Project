@@ -1,0 +1,359 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_obsidian"
+    android:fillViewport="true">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="20dp">
+
+        <!-- Top Header Navigation -->
+        <LinearLayout
+            android:id="@+id/layoutHeaderOp"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingTop="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/btnBackOp"
+                android:layout_width="28dp"
+                android:layout_height="28dp"
+                android:background="?selectableItemBackgroundBorderless"
+                android:clickable="true"
+                android:focusable="true"
+                android:padding="2dp"
+                android:src="@drawable/ic_arrow_back"
+                app:tint="@color/text_primary" />
+
+            <TextView
+                style="@style/TacticalTelemetry"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:layout_weight="1"
+                android:text="OFFROUTE // OPERATOR CLEARANCE"
+                android:textColor="@color/text_secondary"
+                android:textSize="11sp" />
+
+            <TextView
+                style="@style/TacticalTelemetryGreen"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_pill_badge_green"
+                android:text="• AIR-GAP"
+                android:textSize="9sp" />
+        </LinearLayout>
+
+        <!-- Tag Badge -->
+        <TextView
+            android:id="@+id/badgeMissionAuth"
+            style="@style/TacticalTelemetryGreen"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="28dp"
+            android:background="@drawable/bg_pill_badge_green"
+            android:text="• AUTORISASI MISI LAPANGAN"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/layoutHeaderOp" />
+
+        <!-- Title -->
+        <TextView
+            android:id="@+id/tvTitleOp"
+            style="@style/TacticalHeadline"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="Masuk Operator"
+            android:textSize="26sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/badgeMissionAuth" />
+
+        <TextView
+            android:id="@+id/tvSubtitleOp"
+            style="@style/TacticalBody"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:text="Masukkan Callsign ID dan kunci taktis untuk mengaktifkan terminal komando Ranger."
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvTitleOp" />
+
+        <!-- Field 1: Callsign ID -->
+        <TextView
+            android:id="@+id/lblCallsign"
+            style="@style/TacticalTelemetry"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text="ID CALLSIGN TAKTIS"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvSubtitleOp" />
+
+        <LinearLayout
+            android:id="@+id/layoutCallsignInput"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="6dp"
+            android:background="@drawable/bg_input_box"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingHorizontal="12dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/lblCallsign">
+
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:src="@drawable/ic_person"
+                app:tint="@color/accent_green" />
+
+            <EditText
+                android:id="@+id/etCallsign"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginStart="10dp"
+                android:layout_weight="1"
+                android:background="@null"
+                android:fontFamily="monospace"
+                android:hint="ECHO-04"
+                android:inputType="textCapCharacters"
+                android:letterSpacing="0.08"
+                android:text="ECHO-04"
+                android:textColor="@color/text_primary"
+                android:textColorHint="@color/text_muted"
+                android:textSize="14sp" />
+        </LinearLayout>
+
+        <!-- Quick-Fill Chips -->
+        <LinearLayout
+            android:id="@+id/layoutChips"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/layoutCallsignInput">
+
+            <TextView
+                android:id="@+id/chipEcho"
+                style="@style/TacticalTelemetry"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:background="@drawable/bg_quick_chip"
+                android:clickable="true"
+                android:focusable="true"
+                android:text="[ ECHO-04 ]"
+                android:textColor="@color/accent_green" />
+
+            <TextView
+                android:id="@+id/chipBravo"
+                style="@style/TacticalTelemetry"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:background="@drawable/bg_quick_chip"
+                android:clickable="true"
+                android:focusable="true"
+                android:text="[ BRAVO-02 ]"
+                android:textColor="@color/text_secondary" />
+
+            <TextView
+                android:id="@+id/chipTango"
+                style="@style/TacticalTelemetry"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_quick_chip"
+                android:clickable="true"
+                android:focusable="true"
+                android:text="[ TANGO-09 ]"
+                android:textColor="@color/text_secondary" />
+        </LinearLayout>
+
+        <!-- Field 2: Password / Kunci Taktis -->
+        <TextView
+            android:id="@+id/lblPassword"
+            style="@style/TacticalTelemetry"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="KUNCI TAKTIS / SANDI MISI"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/layoutChips" />
+
+        <LinearLayout
+            android:id="@+id/layoutPasswordInput"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="6dp"
+            android:background="@drawable/bg_input_box"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingHorizontal="12dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/lblPassword">
+
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:src="@drawable/ic_key"
+                app:tint="@color/accent_amber" />
+
+            <EditText
+                android:id="@+id/etPassword"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginStart="10dp"
+                android:layout_weight="1"
+                android:background="@null"
+                android:fontFamily="monospace"
+                android:hint="••••••••••••"
+                android:inputType="textPassword"
+                android:text="RANGER-SEC-2026"
+                android:textColor="@color/text_primary"
+                android:textColorHint="@color/text_muted"
+                android:textSize="14sp" />
+
+            <ImageView
+                android:id="@+id/btnToggleVisibility"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:background="?selectableItemBackgroundBorderless"
+                android:clickable="true"
+                android:contentDescription="Toggle Password Visibility"
+                android:focusable="true"
+                android:padding="2dp"
+                android:src="@drawable/ic_visibility"
+                app:tint="@color/text_muted" />
+
+            <ImageView
+                android:id="@+id/btnQrCodeScan"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_marginStart="8dp"
+                android:background="?selectableItemBackgroundBorderless"
+                android:clickable="true"
+                android:contentDescription="Scan QR Code"
+                android:focusable="true"
+                android:padding="2dp"
+                android:src="@drawable/ic_qr_code"
+                app:tint="@color/accent_green" />
+        </LinearLayout>
+
+        <!-- Switch Card: Simpan Kunci Offline -->
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cardOfflineSave"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            app:cardBackgroundColor="@color/surface_card"
+            app:cardCornerRadius="10dp"
+            app:cardElevation="0dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/layoutPasswordInput"
+            app:strokeColor="@color/border_subtle"
+            app:strokeWidth="1dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingHorizontal="14dp"
+                android:paddingVertical="10dp">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        style="@style/TacticalSubhead"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Simpan Kunci Offline"
+                        android:textSize="13sp" />
+
+                    <TextView
+                        style="@style/TacticalTelemetry"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Akses instan saat terputus total"
+                        android:textSize="9sp" />
+                </LinearLayout>
+
+                <com.google.android.material.materialswitch.MaterialSwitch
+                    android:id="@+id/switchOfflineKey"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checked="true"
+                    app:thumbTint="@color/accent_red"
+                    app:trackDecorationTint="@color/accent_red"
+                    app:trackTint="@color/accent_red_surface" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- CTA 1: Masuk Ke Sistem -->
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnSignInSystem"
+            style="@style/TacticalPrimaryButton"
+            android:layout_width="0dp"
+            android:layout_height="52dp"
+            android:layout_marginTop="24dp"
+            android:text="MASUK KE SISTEM -&gt;"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/cardOfflineSave" />
+
+        <!-- CTA 2: Pindai Kartu Lapangan (NFC) -->
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnScanNfc"
+            style="@style/TacticalSecondaryButton"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="12dp"
+            android:drawableStart="@drawable/ic_nfc"
+            android:drawableTint="@color/accent_amber"
+            android:paddingHorizontal="16dp"
+            android:text="PINDAI KARTU LAPANGAN (NFC)"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/btnSignInSystem" />
+
+        <!-- Footer Link: Paper Key -->
+        <TextView
+            android:id="@+id/btnPaperKeyRecovery"
+            style="@style/TacticalTelemetryAmber"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:layout_marginBottom="16dp"
+            android:background="?selectableItemBackground"
+            android:clickable="true"
+            android:focusable="true"
+            android:padding="8dp"
+            android:text="LUPA KUNCI TAKTIS? GUNAKAN PAPER KEY -&gt;"
+            android:textSize="10sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/btnScanNfc" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

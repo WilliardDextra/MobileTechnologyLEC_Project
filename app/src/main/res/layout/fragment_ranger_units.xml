@@ -1,0 +1,329 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_obsidian"
+    android:fillViewport="true">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="20dp">
+
+        <!-- Top Header Navigation -->
+        <LinearLayout
+            android:id="@+id/layoutUnitsTop"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                style="@style/TacticalHeadline"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="UNIT STATUS"
+                android:textSize="20sp" />
+
+            <TextView
+                style="@style/TacticalTelemetryRed"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_pill_badge_red"
+                android:text="• 4 UNIT AKTIF • 1 SOS"
+                android:textSize="10sp" />
+        </LinearLayout>
+
+        <!-- High-Priority Crimson SOS Card: BRAVO-02 -->
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cardEmergencyUnit"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            app:cardBackgroundColor="@color/accent_red_surface"
+            app:cardCornerRadius="14dp"
+            app:cardElevation="0dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/layoutUnitsTop"
+            app:strokeColor="@color/accent_red"
+            app:strokeWidth="1.5dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        style="@style/TacticalTelemetryRed"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/bg_pill_badge_red"
+                        android:text="[ SOS DARURAT ] PRIORITAS #1"
+                        android:textSize="10sp" />
+
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_height="1dp"
+                        android:layout_weight="1" />
+
+                    <TextView
+                        style="@style/TacticalTelemetryAmber"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="BAT 42%"
+                        android:textSize="10sp" />
+                </LinearLayout>
+
+                <TextView
+                    style="@style/TacticalHeadline"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="BRAVO-02 (SAR Lapangan)"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/tvBravoStatusText"
+                    style="@style/TacticalTelemetryRed"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:text="Sinyal SOS Aktif • 340m Timur (Lereng Sektor B)"
+                    android:textSize="11sp" />
+
+                <TextView
+                    style="@style/TacticalBody"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="&quot;Unit lapor insiden lereng sektor B. Respon medis dan pemandu lapangan dibutuhkan segera.&quot;"
+                    android:textSize="12sp" />
+
+                <!-- Assist CTA Button -->
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btnAssistUnit"
+                    style="@style/TacticalPrimaryButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:layout_marginTop="14dp"
+                    android:text="BANTU UNIT (ASSIST) -&gt;"
+                    android:textSize="12sp" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- Section: UNIT OPERASIONAL -->
+        <LinearLayout
+            android:id="@+id/layoutOperationalHeader"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/cardEmergencyUnit">
+
+            <TextView
+                style="@style/TacticalTelemetry"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="UNIT OPERASIONAL:" />
+
+            <TextView
+                style="@style/TacticalTelemetryGreen"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="DIPERBARUI REALTIME"
+                android:textSize="9sp" />
+        </LinearLayout>
+
+        <!-- Unit List Container -->
+        <LinearLayout
+            android:id="@+id/layoutUnitList"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="16dp"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/layoutOperationalHeader">
+
+            <!-- Unit 1: ECHO-01 -->
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardBackgroundColor="@color/surface_card"
+                app:cardCornerRadius="12dp"
+                app:cardElevation="0dp"
+                app:strokeColor="@color/border_subtle"
+                app:strokeWidth="1dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="14dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            style="@style/TacticalSubhead"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="ECHO-01 (REG-4) Patroli"
+                            android:textSize="14sp" />
+
+                        <TextView
+                            style="@style/TacticalTelemetryGreen"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/bg_pill_badge_green"
+                            android:text="[ • STABIL ]"
+                            android:textSize="10sp" />
+                    </LinearLayout>
+
+                    <TextView
+                        style="@style/TacticalTelemetry"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="2dp"
+                        android:text="Baterai 84% • CH-01 P2P"
+                        android:textSize="10sp" />
+
+                    <!-- Battery bar -->
+                    <ProgressBar
+                        style="?android:attr/progressBarStyleHorizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="4dp"
+                        android:layout_marginTop="8dp"
+                        android:max="100"
+                        android:progress="84"
+                        android:progressTint="@color/accent_green" />
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Unit 2: MED-ALPHA -->
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                app:cardBackgroundColor="@color/surface_card"
+                app:cardCornerRadius="12dp"
+                app:cardElevation="0dp"
+                app:strokeColor="@color/border_subtle"
+                app:strokeWidth="1dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="14dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            style="@style/TacticalSubhead"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="MED-ALPHA (MEDIS) Ambulans"
+                            android:textSize="14sp" />
+
+                        <TextView
+                            style="@style/TacticalTelemetryAmber"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/bg_pill_badge_amber"
+                            android:text="[ • TRANSIT ]"
+                            android:textSize="10sp" />
+                    </LinearLayout>
+
+                    <TextView
+                        style="@style/TacticalTelemetry"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="2dp"
+                        android:text="Menuju Shelter | ETA 6m • Baterai 91%"
+                        android:textSize="10sp" />
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Unit 3: BASE-01 -->
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                app:cardBackgroundColor="@color/surface_card"
+                app:cardCornerRadius="12dp"
+                app:cardElevation="0dp"
+                app:strokeColor="@color/border_subtle"
+                app:strokeWidth="1dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="14dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            style="@style/TacticalSubhead"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="BASE-01 (HQ) Posko BPBD"
+                            android:textSize="14sp" />
+
+                        <TextView
+                            style="@style/TacticalTelemetryBlue"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/bg_pill_badge_blue"
+                            android:text="[ • TERHUBUNG ]"
+                            android:textSize="10sp" />
+                    </LinearLayout>
+
+                    <TextView
+                        style="@style/TacticalTelemetry"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="2dp"
+                        android:text="Kanal Utama VHF 142.100 | 100% LAT"
+                        android:textSize="10sp" />
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

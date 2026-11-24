@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Tactical Typography Styles -->
+    <style name="TacticalHeadline">
+        <item name="android:fontFamily">sans-serif-black</item>
+        <item name="android:textColor">@color/text_primary</item>
+        <item name="android:textSize">22sp</item>
+        <item name="android:letterSpacing">-0.01</item>
+    </style>
+
+    <style name="TacticalSubhead">
+        <item name="android:fontFamily">sans-serif-medium</item>
+        <item name="android:textColor">@color/text_primary</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+
+    <style name="TacticalBody">
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:textColor">@color/text_secondary</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:lineSpacingExtra">3dp</item>
+    </style>
+
+    <style name="TacticalTelemetry">
+        <item name="android:fontFamily">monospace</item>
+        <item name="android:textColor">@color/text_muted</item>
+        <item name="android:textSize">11sp</item>
+        <item name="android:letterSpacing">0.08</item>
+        <item name="android:textAllCaps">true</item>
+    </style>
+
+    <style name="TacticalTelemetryGreen" parent="TacticalTelemetry">
+        <item name="android:textColor">@color/accent_green</item>
+    </style>
+
+    <style name="TacticalTelemetryRed" parent="TacticalTelemetry">
+        <item name="android:textColor">@color/accent_red</item>
+    </style>
+
+    <style name="TacticalTelemetryAmber" parent="TacticalTelemetry">
+        <item name="android:textColor">@color/accent_amber</item>
+    </style>
+
+    <style name="TacticalTelemetryBlue" parent="TacticalTelemetry">
+        <item name="android:textColor">@color/accent_blue</item>
+    </style>
+
+    <!-- Tactical Buttons -->
+    <style name="TacticalPrimaryButton">
+        <item name="android:background">@drawable/bg_btn_primary</item>
+        <item name="android:textColor">@color/bg_obsidian</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:fontFamily">sans-serif-black</item>
+        <item name="android:letterSpacing">0.05</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="android:gravity">center</item>
+        <item name="android:minHeight">50dp</item>
+    </style>
+
+    <style name="TacticalDangerButton">
+        <item name="android:background">@drawable/bg_btn_danger</item>
+        <item name="android:textColor">@color/text_primary</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:fontFamily">sans-serif-black</item>
+        <item name="android:letterSpacing">0.05</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="android:gravity">center</item>
+        <item name="android:minHeight">50dp</item>
+    </style>
+
+    <style name="TacticalSecondaryButton">
+        <item name="android:background">@drawable/bg_btn_secondary</item>
+        <item name="android:textColor">@color/text_primary</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
+        <item name="android:letterSpacing">0.03</item>
+        <item name="android:gravity">center</item>
+        <item name="android:minHeight">48dp</item>
+    </style>
+</resources>

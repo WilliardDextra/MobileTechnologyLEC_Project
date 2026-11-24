@@ -1,0 +1,271 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_obsidian"
+    android:fillViewport="true">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp">
+
+        <!-- Top Header Bar -->
+        <LinearLayout
+            android:id="@+id/layoutRadarTop"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                style="@style/TacticalHeadline"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="SEKTOR •"
+                android:textSize="20sp" />
+
+            <TextView
+                style="@style/TacticalTelemetryGreen"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_weight="1"
+                android:text="RADAR 04 ACTIVE"
+                android:textSize="11sp" />
+
+            <TextView
+                style="@style/TacticalTelemetryGreen"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_pill_badge_green"
+                android:text="84% BATT"
+                android:textSize="10sp" />
+
+            <ImageView
+                android:layout_width="26dp"
+                android:layout_height="26dp"
+                android:layout_marginStart="10dp"
+                android:background="@drawable/bg_tactical_card_elevated"
+                android:padding="5dp"
+                android:src="@drawable/ic_person"
+                app:tint="@color/accent_green" />
+        </LinearLayout>
+
+        <!-- Hazard Alert Banner: HAZ-09 -->
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cardHazardAlert"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            app:cardBackgroundColor="@color/accent_red_surface"
+            app:cardCornerRadius="10dp"
+            app:cardElevation="0dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/layoutRadarTop"
+            app:strokeColor="@color/accent_red"
+            app:strokeWidth="1dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:padding="10dp">
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:src="@drawable/ic_hazard_fire"
+                    app:tint="@color/accent_red" />
+
+                <TextView
+                    style="@style/TacticalTelemetryRed"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_weight="1"
+                    android:text="HAZ-09 • Longsor Tebing Cidadap — Jalan Tertutup (450m via COR-02)"
+                    android:textSize="10sp" />
+
+                <TextView
+                    style="@style/TacticalTelemetryRed"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/bg_pill_badge_red"
+                    android:text="BAHAYA"
+                    android:textSize="9sp" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- Custom Interactive Tactical Radar Canvas -->
+        <com.offroute.app.ui.custom.TacticalRadarView
+            android:id="@+id/tacticalRadarView"
+            android:layout_width="0dp"
+            android:layout_height="310dp"
+            android:layout_marginTop="10dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/cardHazardAlert" />
+
+        <!-- Selected Blip Telemetry Card -->
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cardBlipTelemetry"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            app:cardBackgroundColor="@color/surface_card"
+            app:cardCornerRadius="10dp"
+            app:cardElevation="0dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tacticalRadarView"
+            app:strokeColor="@color/border_subtle"
+            app:strokeWidth="1dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="12dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/tvTelemetryTargetName"
+                        style="@style/TacticalSubhead"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="TARGET: BRAVO-02 [SOS]"
+                        android:textColor="@color/accent_red"
+                        android:textSize="13sp" />
+
+                    <TextView
+                        android:id="@+id/tvTelemetryRssi"
+                        style="@style/TacticalTelemetryGreen"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="RSSI: -58 dBm [KUAT]"
+                        android:textSize="10sp" />
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/tvTelemetryDetail"
+                    style="@style/TacticalTelemetry"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="3dp"
+                    android:text="Jarak: 340m Timur • Sinyal SOS aktif via BLE Direct"
+                    android:textSize="10sp" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- 2 Metric Cards: Radius & Elevasi -->
+        <LinearLayout
+            android:id="@+id/layoutRadarMetrics"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/cardBlipTelemetry">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="5dp"
+                android:layout_weight="1"
+                android:background="@drawable/bg_tactical_card_elevated"
+                android:orientation="vertical"
+                android:padding="10dp">
+
+                <TextView
+                    style="@style/TacticalTelemetry"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="RADIUS RADAR"
+                    android:textSize="9sp" />
+
+                <TextView
+                    style="@style/TacticalHeadline"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:text="1.5 km"
+                    android:textSize="16sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:layout_weight="1"
+                android:background="@drawable/bg_tactical_card_elevated"
+                android:orientation="vertical"
+                android:padding="10dp">
+
+                <TextView
+                    style="@style/TacticalTelemetry"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="ELEVASI MEDAN"
+                    android:textSize="9sp" />
+
+                <TextView
+                    style="@style/TacticalHeadline"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:text="1,142 m"
+                    android:textColor="@color/accent_amber"
+                    android:textSize="16sp" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- 2 Action Buttons -->
+        <LinearLayout
+            android:id="@+id/layoutRadarButtons"
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:layout_marginTop="12dp"
+            android:layout_marginBottom="16dp"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/layoutRadarMetrics">
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btnScanSectorPing"
+                style="@style/TacticalPrimaryButton"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginEnd="5dp"
+                android:layout_weight="1.2"
+                android:text="PINDAI SEKTOR (MESH PING)"
+                android:textSize="11sp" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btnSetWaypoint"
+                style="@style/TacticalSecondaryButton"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginStart="5dp"
+                android:layout_weight="0.8"
+                android:text="SET TITIK ARAH"
+                android:textSize="11sp" />
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

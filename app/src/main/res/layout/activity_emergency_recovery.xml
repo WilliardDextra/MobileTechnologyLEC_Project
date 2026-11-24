@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_obsidian"
+    android:fillViewport="true">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="20dp">
+
+        <!-- Top Header Navigation -->
+        <LinearLayout
+            android:id="@+id/layoutHeaderRec"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingTop="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/btnBackRec"
+                android:layout_width="28dp"
+                android:layout_height="28dp"
+                android:background="?selectableItemBackgroundBorderless"
+                android:clickable="true"
+                android:focusable="true"
+                android:padding="2dp"
+                android:src="@drawable/ic_arrow_back"
+                app:tint="@color/text_primary" />
+
+            <TextView
+                style="@style/TacticalTelemetry"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:layout_weight="1"
+                android:text="OFFROUTE // RECOVERY PROTOCOL"
+                android:textColor="@color/text_secondary"
+                android:textSize="11sp" />
+
+            <TextView
+                style="@style/TacticalTelemetryAmber"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_pill_badge_amber"
+                android:text="• PAPER KEY"
+                android:textSize="9sp" />
+        </LinearLayout>
+
+        <!-- System Recovery Bar -->
+        <TextView
+            android:id="@+id/tvSystemRecoveryBar"
+            style="@style/TacticalTelemetryGreen"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/bg_pill_badge_green"
+            android:gravity="center"
+            android:padding="8dp"
+            android:text="SYS // RECOVERY_PROTOCOL [ OFFLINE_AUTH ]"
+            android:textSize="10sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/layoutHeaderRec" />
+
+        <!-- Title -->
+        <TextView
+            android:id="@+id/tvTitleRecovery"
+            style="@style/TacticalHeadline"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="Pemulihan Darurat"
+            android:textSize="26sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvSystemRecoveryBar" />
+
+        <TextView
+            android:id="@+id/tvSubtitleRecovery"
+            style="@style/TacticalBody"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:text="Masukkan 12 kata kunci pemulihan (Paper Key) fisik yang diberikan saat penugasan unit."
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvTitleRecovery" />
+
+        <!-- Card Input Terminal -->
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cardTerminalInput"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            app:cardBackgroundColor="@color/surface_card"
+            app:cardCornerRadius="12dp"
+            app:cardElevation="0dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvSubtitleRecovery"
+            app:strokeColor="@color/border_subtle"
+            app:strokeWidth="1dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <!-- Header in card -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        style="@style/TacticalTelemetry"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="TERMINAL://KEY_INPUT"
+                        android:textColor="@color/accent_green" />
+
+                    <TextView
+                        android:id="@+id/tvWordCounter"
+                        style="@style/TacticalTelemetryAmber"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/bg_pill_badge_amber"
+                        android:text="0/12 KATA"
+                        android:textSize="10sp" />
+                </LinearLayout>
+
+                <!-- Seed Phrase Input Area -->
+                <EditText
+                    android:id="@+id/etSeedInput"
+                    android:layout_width="match_parent"
+                    android:layout_height="130dp"
+                    android:layout_marginTop="12dp"
+                    android:background="@drawable/bg_input_box"
+                    android:fontFamily="monospace"
+                    android:gravity="top|start"
+                    android:hint="Ketik 12 kata dipisahkan spasi...\n(Contoh: alpha beacon radar echo...)"
+                    android:inputType="textMultiLine"
+                    android:lineSpacingExtra="4dp"
+                    android:padding="12dp"
+                    android:textColor="@color/text_primary"
+                    android:textColorHint="@color/text_muted"
+                    android:textSize="13sp" />
+
+                <!-- Quick Action: Tempel / Paste -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        style="@style/TacticalTelemetry"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="SIMULASI KERTAS FISIK:"
+                        android:textSize="10sp" />
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/btnPasteSeed"
+                        style="@style/TacticalSecondaryButton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="38dp"
+                        android:drawableStart="@drawable/ic_paste"
+                        android:drawableTint="@color/accent_green"
+                        android:drawablePadding="6dp"
+                        android:paddingHorizontal="14dp"
+                        android:text="[ TEMPEL ]"
+                        android:textColor="@color/accent_green"
+                        android:textSize="12sp" />
+                </LinearLayout>
+
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- Recovery Status Feedback -->
+        <TextView
+            android:id="@+id/tvRecoveryStatus"
+            style="@style/TacticalTelemetry"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="14dp"
+            android:gravity="center"
+            android:text="STATUS: SIAP MEMVERIFIKASI PAPER KEY"
+            android:textColor="@color/text_muted"
+            android:textSize="11sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/cardTerminalInput" />
+
+        <!-- CTA: Pulihkan Akses -->
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnRestoreAccess"
+            style="@style/TacticalPrimaryButton"
+            android:layout_width="0dp"
+            android:layout_height="52dp"
+            android:layout_marginTop="20dp"
+            android:text="PULIHKAN AKSES TAKTIS -&gt;"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvRecoveryStatus" />
+
+        <!-- Footer Info -->
+        <TextView
+            android:id="@+id/tvFooterRecovery"
+            style="@style/TacticalTelemetry"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:layout_marginBottom="16dp"
+            android:text="BIP-39 AIR-GAP COMPLIANT // NO NETWORK REQUIRED"
+            android:textSize="9sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/btnRestoreAccess" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

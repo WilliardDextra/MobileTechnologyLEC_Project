@@ -1,0 +1,254 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_obsidian"
+    android:fillViewport="true">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="20dp">
+
+        <!-- Top Status Pill -->
+        <TextView
+            android:id="@+id/pillTopStatus"
+            style="@style/TacticalTelemetryGreen"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/bg_pill_badge_green"
+            android:text="• GRID AKTIF // SIAGA"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <!-- Center Glowing Radar Emblem -->
+        <ImageView
+            android:id="@+id/ivAuthRadar"
+            android:layout_width="88dp"
+            android:layout_height="88dp"
+            android:layout_marginTop="32dp"
+            android:background="@drawable/bg_radar_center"
+            android:padding="18dp"
+            android:src="@drawable/ic_radar"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/pillTopStatus"
+            app:tint="@color/accent_red" />
+
+        <!-- App Branding -->
+        <TextView
+            android:id="@+id/tvBrandTitle"
+            style="@style/TacticalHeadline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:letterSpacing="0.1"
+            android:text="OFFROUTE"
+            android:textSize="28sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/ivAuthRadar" />
+
+        <TextView
+            android:id="@+id/tvBrandSubtitle"
+            style="@style/TacticalTelemetry"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:text="SISTEM NAVIGASI &amp; KOMANDO DARURAT"
+            android:textColor="@color/accent_amber"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvBrandTitle" />
+
+        <!-- Section Label -->
+        <TextView
+            android:id="@+id/tvSelectRoleLabel"
+            style="@style/TacticalTelemetry"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="36dp"
+            android:text="PILIH PROFIL OPERASIONAL:"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvBrandSubtitle" />
+
+        <!-- Role 1: Operator Ranger -->
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cardRoleRanger"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:clickable="true"
+            android:focusable="true"
+            app:cardBackgroundColor="@color/surface_elevated"
+            app:cardCornerRadius="12dp"
+            app:cardElevation="0dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvSelectRoleLabel"
+            app:strokeColor="@color/accent_green"
+            app:strokeWidth="1.5dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:padding="16dp">
+
+                <ImageView
+                    android:id="@+id/ivRangerIcon"
+                    android:layout_width="36dp"
+                    android:layout_height="36dp"
+                    android:background="@drawable/bg_tactical_card"
+                    android:padding="8dp"
+                    android:src="@drawable/ic_shield"
+                    app:tint="@color/accent_green" />
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="14dp"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        style="@style/TacticalSubhead"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Operator Ranger"
+                        android:textSize="15sp" />
+
+                    <TextView
+                        style="@style/TacticalTelemetry"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="2dp"
+                        android:text="SAR &amp; Satgas Lapangan (Full Clearance)"
+                        android:textSize="10sp" />
+                </LinearLayout>
+
+                <RadioButton
+                    android:id="@+id/rbRanger"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:buttonTint="@color/accent_green"
+                    android:checked="true"
+                    android:clickable="false" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- Role 2: Warga / Tamu -->
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cardRoleCivil"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:clickable="true"
+            android:focusable="true"
+            app:cardBackgroundColor="@color/surface_card"
+            app:cardCornerRadius="12dp"
+            app:cardElevation="0dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/cardRoleRanger"
+            app:strokeColor="@color/border_subtle"
+            app:strokeWidth="1dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:padding="16dp">
+
+                <ImageView
+                    android:id="@+id/ivCivilIcon"
+                    android:layout_width="36dp"
+                    android:layout_height="36dp"
+                    android:background="@drawable/bg_tactical_card_elevated"
+                    android:padding="8dp"
+                    android:src="@drawable/ic_person"
+                    app:tint="@color/text_muted" />
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="14dp"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        style="@style/TacticalSubhead"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Warga / Tamu"
+                        android:textSize="15sp" />
+
+                    <TextView
+                        style="@style/TacticalTelemetry"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="2dp"
+                        android:text="Evakuasi Mandiri &amp; Titik Aman (Civil Mode)"
+                        android:textSize="10sp" />
+                </LinearLayout>
+
+                <RadioButton
+                    android:id="@+id/rbCivil"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:buttonTint="@color/accent_green"
+                    android:checked="false"
+                    android:clickable="false" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- CTA 1: Masuk dengan ID Taktis -->
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnEnterAuth"
+            style="@style/TacticalPrimaryButton"
+            android:layout_width="0dp"
+            android:layout_height="52dp"
+            android:layout_marginTop="32dp"
+            android:text="MASUK DENGAN ID TAKTIS -&gt;"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/cardRoleCivil" />
+
+        <!-- CTA 2: Evakuasi Cepat [INSTAN] -->
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnQuickEvac"
+            style="@style/TacticalSecondaryButton"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="12dp"
+            android:drawableStart="@drawable/ic_sos"
+            android:drawableTint="@color/accent_red"
+            android:paddingHorizontal="16dp"
+            android:text="EVAKUASI CEPAT [INSTAN]"
+            android:textColor="@color/accent_red"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/btnEnterAuth" />
+
+        <!-- Footer Telemetry -->
+        <TextView
+            android:id="@+id/tvFooterAuth"
+            style="@style/TacticalTelemetry"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:layout_marginBottom="16dp"
+            android:text="OFFROUTE PROTOCOL // 100% AIR-GAP COMPLIANT"
+            android:textSize="9sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/btnQuickEvac" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
